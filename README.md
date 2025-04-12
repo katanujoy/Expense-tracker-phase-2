@@ -1,21 +1,24 @@
-# Expense Tracker
+# Expense Tracker - React App
 
-This project is an Expense Tracker built using **React** and **Vite**. It allows users to add, delete, and filter expenses, along with form validation and error handling.
+This is a simple expense tracker application built using React and Vite.
 
 ## Features
-- Add new expenses with description, amount, and category.
-- View a list of expenses.
-- Delete expenses.
-- Filter expenses by category.
-- Form validation using **Formik** and **Yup**.
+- Add and manage your expenses.
+- Categorize expenses.
+- View a summary of your expenses.
 
 ## Technologies Used
-- **Frontend**: React, Vite, Formik, Yup
-- **State Management**: React's `useState` and `useEffect`
-- **Styling**: CSS
+- React
+- Vite
+- Formik (for form handling)
+- Yup (for form validation)
+- CSS for styling
 
-## Setup Instructions
+## Live Demo
+You can view the live demo of the app here: [Expense Tracker - Vercel](https://expense-tracker-phase-2-cru9.vercel.app/)
 
-### 1. Clone the repository:
-```bash
-git clone https://github.com/katanujoy/Expense-tracker-phase-2.git
+## How to Run Locally
+
+1. Clone this repository:
+   ```bash
+   git clone https://github.com/katanujoy/Expense-tracker-phase-2.git
