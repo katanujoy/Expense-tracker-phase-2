@@ -1,195 +1,202 @@
-body {
-  font-family: 'Poppins', sans-serif;
-  background-color: #f5f7fa;
-  margin: 0;
-  padding: 0;
-  color: #333;
+/* Base Styles */
+:root {
+  --primary-color: #4361ee;
+  --secondary-color: #3f37c9;
+  --accent-color: #4895ef;
+  --danger-color: #f72585;
+  --success-color: #4cc9f0;
+  --light-color: #f8f9fa;
+  --dark-color: #212529;
+  --gray-color: #6c757d;
+  --border-radius: 8px;
+  --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --transition: all 0.3s ease;
 }
 
-.container {
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Root and Body Setup */
+html {
+  height: 100%;
+  scrollbar-width: thin; /* Firefox */
+  -ms-overflow-style: auto; /* IE/Edge */
+}
+
+body {
+  min-height: 100%;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f5f7fa;
+  color: var(--dark-color);
+  line-height: 1.6;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Ensure scrollbars are visible in Chrome, Safari, Opera */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+}
+
+/* Main App Container */
+.app-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  width: 100%;
+}
+
+/* Content Wrapper */
+.content-wrapper {
+  width: 100%;
   max-width: 600px;
-  margin: 30px auto;
-  background: white;
+  margin: 0 auto;
   padding: 2rem;
+  background-color: white;
   border-radius: 16px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  position: relative;
 }
 
-header {
+/* Header Styles */
+.app-header {
   text-align: center;
   margin-bottom: 2rem;
 }
 
-h1 {
-  color: #2d3748;
-  margin: 0 0 0.5rem 0;
+.app-title {
   font-size: 2rem;
+  color: var(--primary-color);
+  margin-bottom: 0.5rem;
 }
 
-.subtitle {
-  color: #718096;
-  margin: 0;
-  font-size: 0.9rem;
+.app-subtitle {
+  color: var(--gray-color);
+  font-size: 1rem;
 }
 
-.expense-form {
+/* Main Content Grid */
+.app-main {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1rem;
-  margin-bottom: 2rem;
+  grid-template-columns: 1fr;
+  gap: 2rem;
 }
 
-.form-group {
-  display: flex;
-  flex-direction: column;
+/* Section Styles */
+.form-section,
+.summary-section,
+.list-section {
+  background-color: white;
+  padding: 1.5rem;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
 }
 
-.form-group:nth-child(3) {
-  grid-column: span 2;
+/* Category Input Field */
+input,
+textarea {
+  background-color: white;
+  color: var(--dark-color);
+  border: 1px solid var(--gray-color);
+  padding: 0.8rem;
+  border-radius: var(--border-radius);
+  width: 100%;
+  font-size: 1rem;
+  margin-bottom: 1.5rem; /* Space between inputs */
 }
 
-.expense-form input,
-.expense-form select {
-  padding: 12px;
-  border: 1px solid #e2e8f0;
-  border-radius: 8px;
-  font-family: 'Poppins', sans-serif;
-  transition: all 0.2s ease;
-}
-
-.expense-form input:focus,
-.expense-form select:focus {
+input:focus,
+textarea:focus {
+  border-color: var(--primary-color);
   outline: none;
-  border-color: #4299e1;
-  box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.2);
 }
 
-.add-btn {
-  grid-column: span 2;
-  background: #4299e1;
-  color: white;
-  padding: 12px;
-  border: none;
-  border-radius: 8px;
-  font-family: 'Poppins', sans-serif;
-  font-weight: 500;
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-
-.add-btn:hover {
-  background: #3182ce;
-}
-
-.summary {
-  text-align: center;
-  margin-bottom: 1.5rem;
-}
-
-.total-amount {
-  color: #2b6cb0;
-  font-weight: 600;
-}
-
-.expense-count {
-  color: #718096;
-  font-size: 0.9rem;
-  margin: 0.5rem 0 0 0;
-}
-
-.expense-list-container {
-  border-radius: 8px;
-  overflow: hidden;
-}
-
-.empty-state {
-  text-align: center;
-  padding: 2rem;
-  color: #a0aec0;
-}
-
-.expense-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.expense-item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem;
-  background: white;
-  border-bottom: 1px solid #edf2f7;
-  transition: all 0.2s ease;
-}
-
-.expense-item:hover {
-  background: #f8fafc;
-}
-
-.expense-info {
+/* Form Layout */
+form {
   display: flex;
   flex-direction: column;
-  gap: 0.25rem;
+  gap: 1.5rem;
 }
 
-.expense-desc {
-  font-weight: 500;
-}
-
-.expense-category {
-  font-size: 0.75rem;
-  color: #718096;
-  background: #edf2f7;
-  padding: 0.25rem 0.5rem;
-  border-radius: 4px;
-  align-self: flex-start;
-}
-
-.expense-date {
-  font-size: 0.75rem;
-  color: #a0aec0;
-}
-
-.expense-amount {
-  font-weight: 600;
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-}
-
-.delete-btn {
-  background: none;
+/* Button Styles */
+button {
+  padding: 1rem;
+  background-color: var(--primary-color);
+  color: white;
   border: none;
-  color: #e53e3e;
-  font-size: 1.25rem;
+  border-radius: var(--border-radius);
   cursor: pointer;
-  padding: 0.25rem;
-  line-height: 1;
-  transition: all 0.2s ease;
+  font-size: 1rem;
+  transition: background-color 0.3s;
 }
 
-.delete-btn:hover {
-  transform: scale(1.2);
+button:hover {
+  background-color: var(--secondary-color);
 }
 
-@media (max-width: 640px) {
-  .container {
-    margin: 0;
+/* Responsive Design */
+@media (min-width: 768px) {
+  .app-main {
+    grid-template-columns: 1fr 2fr;
+  }
+
+  .form-section {
+    grid-row: span 2;
+  }
+
+  .app-title {
+    font-size: 2.5rem;
+  }
+
+  .app-subtitle {
+    font-size: 1.1rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .content-wrapper {
+    padding: 3rem 2rem;
+  }
+
+  .app-title {
+    font-size: 3rem;
+  }
+}
+
+/* Mobile specific adjustments */
+@media (max-width: 767px) {
+  .app-container {
+    padding: 10px;
+    align-items: flex-start;
+  }
+  
+  .content-wrapper {
     border-radius: 0;
-    min-height: 100vh;
+    box-shadow: none;
+    padding: 1rem;
   }
-  
-  .expense-form {
-    grid-template-columns: 1fr;
-  }
-  
-  .form-group:nth-child(3) {
-    grid-column: span 1;
-  }
-  
-  .add-btn {
-    grid-column: span 1;
-  }
+}
+
+/* Ensure no footer artifacts */
+footer {
+  display: none !important;
+}
+
+/* Final safety checks */
+body::after,
+body::before {
+  content: none;
+  display: none;
 }
