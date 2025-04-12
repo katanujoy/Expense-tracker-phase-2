@@ -189,7 +189,7 @@ button:hover {
   }
 }
 
-/* Ensure no footer artifacts */
+/* Hide elements that are not needed */
 footer {
   display: none !important;
 }
