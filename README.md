@@ -22,3 +22,11 @@ You can view the live demo of the app here: [Expense Tracker - Vercel](https://e
 1. Clone this repository:
    ```bash
    git clone https://github.com/katanujoy/Expense-tracker-phase-2.git
+
+2. install dependancies
+   cd Expense-tracker-phase-2
+   npm install
+
+3. npm run dev
+
+4. Open the app in your browser
