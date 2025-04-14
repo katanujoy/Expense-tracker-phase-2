@@ -14,12 +14,12 @@ function App() {
   }, [expenses]);
 
   const handleAddExpense = (expense) => {
-    setExpenses([expense, ...expenses]);
+    setExpenses([expense, ...expenses]); // Adds new expense to the state
   };
 
   const handleDelete = (id) => {
     const filteredExpenses = expenses.filter((expense) => expense.id !== id);
-    setExpenses(filteredExpenses);
+    setExpenses(filteredExpenses); // Removes an expense from the state
   };
 
   const totalAmount = expenses.reduce((sum, expense) => sum + expense.amount, 0);
@@ -28,13 +28,13 @@ function App() {
     <div className="app-container">
       <div className="content-wrapper">
         <header className="app-header">
-          <h1 className="app-title"> Expense Tracker</h1>
+          <h1 className="app-title">Expense Tracker</h1>
           <p className="app-subtitle">Track your daily expenses easily</p>
         </header>
 
         <main className="app-main">
           <div className="form-section">
-            <ExpenseForm onAddExpense={handleAddExpense} />
+            <ExpenseForm onSubmit={handleAddExpense} />
           </div>
 
           <div className="summary-section">
